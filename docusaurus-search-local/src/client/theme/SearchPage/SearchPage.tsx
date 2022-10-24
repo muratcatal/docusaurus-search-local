@@ -33,7 +33,8 @@ function SearchPageContent(): React.ReactElement {
   } = useDocusaurusContext();
 
   const { selectMessage } = usePluralForm();
-  const { searchValue, searchContext, searchVersion, updateSearchPath } = useSearchQuery();
+  const { searchValue, searchContext, searchVersion, updateSearchPath } =
+    useSearchQuery();
   const [searchQuery, setSearchQuery] = useState(searchValue);
   const [searchSource, setSearchSource] =
     useState<
@@ -126,7 +127,7 @@ function SearchPageContent(): React.ReactElement {
           className={styles.searchQueryInput}
           aria-label="Search"
           onChange={handleSearchInputChange}
-          value={searchQuery}
+          value={searchQuery.replaceAll("+", " ")}
           autoComplete="off"
           autoFocus
         />
